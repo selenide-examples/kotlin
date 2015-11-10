@@ -9,6 +9,7 @@ To run tests, just type in command line:
 ## Import IDEA project
 Once gradle has downloaded dependencies, go to IDEA -> File -> Open -> "YOUR_PROJECTS/kotlin"
 
+# Send feedback!
 Try to create your own test examples with Kotlin!
 
 Feel free to send pull request.

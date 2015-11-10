@@ -1,0 +1,28 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-1103'
+  }
+}
+
+apply plugin: "kotlin"
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1103'
+  testCompile 'junit:junit:4.12'
+  testCompile 'com.codeborne:selenide:2.24'
+}
+
+task libs(type: Sync) {
+  from configurations.compile
+  from configurations.testCompile
+  into "$buildDir/lib"
+}
+
+compileKotlin.dependsOn libs
