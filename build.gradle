@@ -3,7 +3,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-1103'
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.51'
   }
 }
 
@@ -14,9 +14,9 @@ repositories {
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1103'
+  compile 'org.jetbrains.kotlin:kotlin-stdlib:1.2.51'
   testCompile 'junit:junit:4.12'
-  testCompile 'com.codeborne:selenide:2.24'
+  testCompile 'com.codeborne:selenide:4.12.2'
 }
 
 task libs(type: Sync) {

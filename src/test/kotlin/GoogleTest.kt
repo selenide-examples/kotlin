@@ -21,7 +21,7 @@ import org.openqa.selenium.By
 public class GoogleTest {
 
     @Before fun setUp() {
-        open("http://google.com/en")
+        open("https://google.com/ncr")
     }
     
     @Test fun usingDollarsWithBackticks() {
