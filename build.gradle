@@ -26,3 +26,11 @@ task libs(type: Sync) {
 }
 
 compileKotlin.dependsOn libs
+
+test {
+  systemProperties = [
+    'file.encoding'    : 'UTF-8',
+    'selenide.headless': 'true',
+    'BUILD_URL'        : System.getenv()['BUILD_URL'],
+  ]
+}
