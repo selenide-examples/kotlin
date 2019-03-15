@@ -3,7 +3,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.51'
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.21'
   }
 }
 
@@ -14,9 +14,9 @@ repositories {
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:1.2.51'
-  testCompile 'junit:junit:4.12'
-  testCompile 'com.codeborne:selenide:4.12.2'
+  testCompile 'org.jetbrains.kotlin:kotlin-stdlib:1.3.21'
+  testCompile("org.junit.jupiter:junit-jupiter:5.4.0")
+  testCompile 'com.codeborne:selenide:5.2.0'
 }
 
 task libs(type: Sync) {
@@ -28,6 +28,7 @@ task libs(type: Sync) {
 compileKotlin.dependsOn libs
 
 test {
+  useJUnitPlatform()
   systemProperties = [
     'file.encoding'    : 'UTF-8',
     'selenide.headless': 'true',
