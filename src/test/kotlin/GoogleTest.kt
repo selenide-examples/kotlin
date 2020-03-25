@@ -19,7 +19,6 @@ import org.openqa.selenium.By
 class GoogleTest {
 
     @BeforeAll fun setUp() {
-        Configuration.startMaximized = false
         open("https://google.com/ncr")
     }
 
