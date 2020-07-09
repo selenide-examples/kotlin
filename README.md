@@ -4,7 +4,7 @@ UI Test example in Kotlin language
 
 ## Run tests
 To run tests, just type in command line:
-> gradle test
+> ./gradlew test
 
 ## Import IDEA project
 Once gradle has downloaded dependencies, go to IDEA -> File -> Open -> "YOUR_PROJECTS/kotlin"
