@@ -3,7 +3,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10'
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21'
   }
 }
 
@@ -14,9 +14,9 @@ repositories {
 }
 
 dependencies {
-  testImplementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.10'
+  testImplementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
   testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-  testImplementation 'com.codeborne:selenide:5.15.1'
+  testImplementation 'com.codeborne:selenide:5.17.0'
   testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.30'
 }
 
