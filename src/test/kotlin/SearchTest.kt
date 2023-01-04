@@ -1,6 +1,7 @@
 import com.codeborne.selenide.CollectionCondition.sizeGreaterThan
 import com.codeborne.selenide.Condition.text
 import com.codeborne.selenide.ElementsCollection
+import com.codeborne.selenide.Selectors.by
 import com.codeborne.selenide.Selenide.*
 import com.codeborne.selenide.SelenideElement
 import org.junit.jupiter.api.BeforeAll
@@ -15,36 +16,36 @@ import org.openqa.selenium.By
  * 2. Selenide.getElement(By.name("q")).val("selenide+kotlin"); // val doesn't compile in Kotlin :(
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GoogleTest {
+class SearchTest {
 
     @BeforeAll fun setUp() {
-        open("https://google.com/ncr")
+        open("https://duckduckgo.com/")
     }
 
     @Test
     fun usingDollarsWithBackticks() {
         `$`(By.name("q")).setValue("selenide").pressEnter()
-        `$$`("#res .g").shouldHave(sizeGreaterThan(5))
-        `$`("#res .g").shouldHave(text("concise ui tests in Java"))
+        `$$`(by("data-testid", "result")).shouldHave(sizeGreaterThan(5))
+        `$`(by("data-testid", "result")).shouldHave(text("concise ui tests in Java"))
     }
 
     @Test fun notUsingDollars() {
         element(By.name("q")).setValue("selenide").pressEnter()
-        elements(By.cssSelector("#res .g")).shouldHave(sizeGreaterThan(5))
-        element(By.cssSelector("#res .g")).shouldHave(text("concise ui tests in Java"))
+        elements(By.cssSelector("[data-testid=\"result\"]")).shouldHave(sizeGreaterThan(5))
+        element(By.cssSelector("[data-testid=\"result\"]")).shouldHave(text("concise ui tests in Java"))
     }
 
     @Test fun usingAliases() {
         get("[name=q]").setValue("selenide").pressEnter()
-        all("#res .g").shouldHave(sizeGreaterThan(5))
-        get("#res .g").shouldHave(text("concise ui tests in Java"))
+        all("[data-testid=\"result\"]").shouldHave(sizeGreaterThan(5))
+        get("[data-testid=\"result\"]").shouldHave(text("concise ui tests in Java"))
     }
 
-    fun get(selector: String) : SelenideElement {
+    private fun get(selector: String) : SelenideElement {
         return `$`(selector)
     }
     
-    fun all(selector: String) : ElementsCollection {
+    private fun all(selector: String) : ElementsCollection {
         return `$$`(selector)
     }
 }
