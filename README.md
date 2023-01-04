@@ -14,5 +14,5 @@ Try to create your own test examples with Kotlin!
 
 Feel free to send pull request.
 
-
-[![Build Status](https://travis-ci.org/selenide-examples/kotlin.png)](https://travis-ci.org/selenide-examples/kotlin)
+Andrei Solntsev
+https://github.com/asolntsev
