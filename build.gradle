@@ -3,7 +3,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
 }
 
@@ -14,11 +14,10 @@ repositories {
 }
 
 dependencies {
-  testImplementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.20'
-  testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-  testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
-  testImplementation 'com.codeborne:selenide:5.22.1'
-  testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.31'
+  testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+  testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+  testImplementation "com.codeborne:selenide:$selenideVersion"
+  testRuntimeOnly "org.slf4j:slf4j-simple:$slf4jVersion"
 }
 
 task libs(type: Sync) {
