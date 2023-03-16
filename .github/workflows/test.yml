@@ -17,8 +17,10 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
           java-version: '8'
-      - name: Run tests in Gradle
-        run: ./gradlew test --info
+      - name: Build & test
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test --info
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
