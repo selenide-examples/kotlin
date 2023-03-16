@@ -3,7 +3,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
   }
 }
 
@@ -13,20 +13,19 @@ repositories {
   mavenCentral()
 }
 
+ext {
+  selenideVersion = "6.12.3"
+  kotlinVersion = "1.8.10"
+  junitVersion = "5.9.2"
+  slf4jVersion = "2.0.6"
+}
+
 dependencies {
   testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
   testImplementation "com.codeborne:selenide:$selenideVersion"
   testRuntimeOnly "org.slf4j:slf4j-simple:$slf4jVersion"
 }
-
-task libs(type: Sync) {
-  from configurations.compileClasspath
-  from configurations.testRuntimeClasspath
-  into "$buildDir/lib"
-}
-
-compileKotlin.dependsOn libs
 
 test {
   useJUnitPlatform()
