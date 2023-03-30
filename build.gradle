@@ -15,7 +15,7 @@ repositories {
 
 ext {
   selenideVersion = "6.12.4"
-  kotlinVersion = "1.8.10"
+  kotlinVersion = "1.8.20"
   junitVersion = "5.9.2"
   slf4jVersion = "2.0.7"
 }
