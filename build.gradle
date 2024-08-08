@@ -17,7 +17,7 @@ ext {
   selenideVersion = "7.4.1"
   kotlinVersion = "2.0.10"
   junitVersion = "5.10.3"
-  slf4jVersion = "2.0.13"
+  slf4jVersion = "2.0.15"
 }
 
 dependencies {
