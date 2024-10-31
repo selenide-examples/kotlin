@@ -1,17 +1,9 @@
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21"
-  }
+plugins {
+  id 'org.jetbrains.kotlin.jvm' version '2.0.21'
 }
 
-apply plugin: "kotlin"
-
-repositories {
-  mavenCentral()
-}
+group = 'org.selenide.examples'
+version = '1.0-SNAPSHOT'
 
 ext {
   selenideVersion = "7.5.1"
@@ -34,4 +26,12 @@ test {
     'selenide.headless': 'true',
     'BUILD_URL'        : System.getenv()['BUILD_URL'],
   ]
+}
+
+repositories {
+  mavenCentral()
+}
+
+kotlin {
+  jvmToolchain(17)
 }
