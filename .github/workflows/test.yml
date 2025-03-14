@@ -17,10 +17,8 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
           java-version: '17'
-      - name: Build & test
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: test --info
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew test --info
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -38,7 +36,7 @@ jobs:
       contents: write
     steps:
       - name: 🤖 Merge PR from dependabot
-        uses: fastify/github-action-merge-dependabot@v3.11.1
+        uses: fastify/github-action-merge-dependabot@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           target: minor
