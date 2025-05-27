@@ -6,7 +6,7 @@ group = 'org.selenide.examples'
 version = '1.0-SNAPSHOT'
 
 ext {
-  selenideVersion = "7.9.2"
+  selenideVersion = "7.9.3"
   kotlinVersion = "2.1.21"
   junitVersion = "5.12.2"
   slf4jVersion = "2.0.17"
