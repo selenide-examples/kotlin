@@ -8,7 +8,7 @@ version = '1.0-SNAPSHOT'
 ext {
   selenideVersion = "7.9.4"
   kotlinVersion = "2.2.0"
-  junitVersion = "5.13.3"
+  junitVersion = "5.13.4"
   slf4jVersion = "2.0.17"
 }
 
