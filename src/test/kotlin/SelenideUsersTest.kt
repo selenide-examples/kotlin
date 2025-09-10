@@ -23,13 +23,13 @@ class SelenideUsersTest {
     @Test
     fun `using dollars with backticks`() {
         `$`(".main-menu-pages").find(byText("Users")).click()
-        `$$`("#selenide-users .user").shouldHave(sizeGreaterThan(90))
+        `$$`("#selenide-users .user").shouldHave(sizeGreaterThan(150))
 
         `$$`("#user-tags .tag").shouldHave(sizeGreaterThan(10))
         `$$`("#user-tags .tag").findBy(text("ukraine")).click()
         `$$`("#selenide-users .user").filter(visible).shouldHave(
-            sizeGreaterThan(5),
-            sizeLessThan(20)
+            sizeGreaterThan(15),
+            sizeLessThan(100)
         )
     }
 
