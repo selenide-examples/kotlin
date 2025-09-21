@@ -1,10 +1,8 @@
 import com.codeborne.selenide.CollectionCondition.*
 import com.codeborne.selenide.Condition.text
 import com.codeborne.selenide.Condition.visible
-import com.codeborne.selenide.ElementsCollection
 import com.codeborne.selenide.Selectors.byText
 import com.codeborne.selenide.Selenide.*
-import com.codeborne.selenide.SelenideElement
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -22,10 +20,11 @@ class SelenideUsersTest {
 
     @Test
     fun `using dollars with backticks`() {
+        `$`(".main-menu-pages") shouldBe visible
         `$`(".main-menu-pages").find(byText("Users")).click()
-        `$$`("#selenide-users .user").shouldHave(sizeGreaterThan(150))
+        `$$`("#selenide-users .user") shouldHave sizeGreaterThan(150)
 
-        `$$`("#user-tags .tag").shouldHave(sizeGreaterThan(10))
+        `$$`("#user-tags .tag") shouldHave sizeGreaterThan(10)
         `$$`("#user-tags .tag").findBy(text("ukraine")).click()
         `$$`("#selenide-users .user").filter(visible).shouldHave(
             sizeGreaterThan(15),
@@ -40,19 +39,26 @@ class SelenideUsersTest {
     }
 
     @Test fun `using aliases`() {
-        get(".main-menu-pages").find(byText("Users")).click()
-        all("#user-tags .tag").findBy(text("finances")).click()
-        all("#selenide-users .user").filter(visible).shouldHave(
-            sizeGreaterThan(25),
+        s(".main-menu-pages").find(byText("Users")).click()
+        ss("#user-tags .tag").findBy(text("finances")).click()
+        ss("#selenide-users .user").filter(visible).shouldHave(
+            sizeGreaterThan(40),
             sizeLessThan(60)
         )
     }
 
-    private fun get(selector: String) : SelenideElement {
-        return `$`(selector)
-    }
+    @Test fun `using page object`() {
+      SelenideOrgPage.apply {
+        openPage("Users")
+      }
 
-    private fun all(selector: String) : ElementsCollection {
-        return `$$`(selector)
+      SelenideUsersPage.apply {
+        filterByTag("finances")
+
+        shownUsers.shouldHave(
+          sizeGreaterThan(40),
+          sizeLessThan(60)
+        )
+      }
     }
 }
